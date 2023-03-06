@@ -3,15 +3,20 @@ import image from "./logo.png";
 
 import ImageHelper from "./Helper/ImageHelper";
 const Card = ({ product, addtoCart = true, removeCart = false }) => {
+  const CardTitle = product ? product.name : "A phot from pixels";
+  const CardDescription = product
+    ? product.description
+    : " an description for the product ";
+  const CardPrice = product ? product.price : " Default ";
   return (
     <div className="card text-white bg-dark border border-info ">
-      <div className="card-header lead">A photo from pexels</div>
+      <div className="card-header lead">{CardTitle}</div>
       <div className="card-body">
         <ImageHelper product={product} />
         <p className="lead bg-success font-weight-normal text-wrap">
-          this photo looks great
+          {CardDescription}
         </p>
-        <p className="btn btn-success rounded  btn-sm px-4">$ 5</p>
+        <p className="btn btn-success rounded  btn-sm px-4">$ {CardPrice}</p>
         <div className="row">
           <div className="col-12">
             <button
