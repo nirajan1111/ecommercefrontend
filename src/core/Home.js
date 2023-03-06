@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { GetProducts } from "./Helper/coreapicalls";
 import Base from "./Base";
+import Card from "./Card";
 export default function Home() {
   const [Products, setProducts] = useState([]);
   const [error, setError] = useState(false);
@@ -23,8 +24,12 @@ export default function Home() {
     <Base title="Home Page" description="Welcome to our store">
       <h2> This is home componenet</h2>
       <div className="row">
-        {Products.map((Product, index) => {
-          return <div key={index}>{Product.name}</div>;
+        {Products.map((product, index) => {
+          return (
+            <div key={index} className="col-4 mb-4">
+              <Card product={product} />
+            </div>
+          );
         })}
       </div>
     </Base>
