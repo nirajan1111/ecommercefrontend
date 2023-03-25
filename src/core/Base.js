@@ -23,9 +23,7 @@ const Base = ({
           </h5>
           <button className="btn btn-warning btn-lg">Contact Us</button>
           <div className="container">
-            <span className="text-white">
-              An amazing Django React fullstack coure
-            </span>
+            <span className="text-white"></span>
           </div>
         </div>
       </div>

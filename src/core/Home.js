@@ -8,11 +8,15 @@ export default function Home() {
 
   const Load_Products = () => {
     GetProducts().then((data) => {
-      if (data.error) {
-        setError(data.error);
-        console.log(error);
+      console.log(data);
+      if (!data) {
       } else {
-        setProducts(data);
+        if (data.error) {
+          setError(data.error);
+          console.log(error);
+        } else {
+          setProducts(data);
+        }
       }
     });
   };
