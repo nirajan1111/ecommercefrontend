@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-
+import { addItemToCart } from "./Helper/carthelper";
 import { redirect } from "react-router-dom";
 
 import ImageHelper from "./Helper/ImageHelper";
 var isAuthenticated = true;
-const Card = ({ product, addtoCart = true, removeCart = false }) => {
+const Card = ({ product, addtoCart = true, removeFromCart = false }) => {
   const CardTitle = product ? product.name : "A phot from pixels";
   const CardDescription = product
     ? product.description
@@ -13,6 +13,7 @@ const Card = ({ product, addtoCart = true, removeCart = false }) => {
 
   const addToCart = () => {
     if (isAuthenticated) {
+      addItemToCart(product, () => {});
       console.log("shfbjhf");
     } else {
       console.log("fshfj");
@@ -61,7 +62,7 @@ const Card = ({ product, addtoCart = true, removeCart = false }) => {
         <p className="btn btn-success rounded  btn-sm px-4">$ {CardPrice}</p>
         <div className="row">
           <div className="col-12">{showAddToCart(addToCart)}</div>
-          <div className="col-12"></div>
+          <div className="col-12">{showRemoveFromCart(addToCart)}</div>
         </div>
       </div>
     </div>

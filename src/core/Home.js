@@ -26,7 +26,7 @@ export default function Home() {
 
   return (
     <Base title="Home Page" description="Welcome to our store">
-      <h2> This is home componenet</h2>
+      <h2> </h2>
       <div className="row">
         {Products.map((product, index) => {
           return (
